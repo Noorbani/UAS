@@ -13,18 +13,25 @@ public class Main {
        peminjam1.doLogin();
        //peminjam1.doLogout();
 
-        try{
+       try {
         Peminjaman peminjaman1 = new Peminjaman(peminjam1, petugas1, buku3);
-
-        System.out.println("Nama Peminjam :"+peminjaman1.getPeminjam().getNamaPeminjam());
-        System.out.println("Kode Peminjam :"+peminjaman1.getPeminjam().getKodePeminjam());
-        System.out.println("Nama Petugas :"+peminjaman1.getPetugas().getNamaPetugas());
-        System.out.println("Nama Buku :"+peminjaman1.getBuku().getNamaBuku());
-        }catch (Exception e){
-            System.out.println("Terjadi Kesalahan"+e.getMessage());
-        } finally {
-            System.out.println("Program Selesai");
-        }
+    
+        System.out.println("Nama Peminjam: " + peminjaman1.getPeminjam().getNamaPeminjam());
+        System.out.println("Kode Peminjam: " + peminjaman1.getPeminjam().getKodePeminjam());
+        System.out.println("Nama Petugas: " + peminjaman1.getPetugas().getNamaPetugas());
+        System.out.println("Nama Buku: " + peminjaman1.getBuku().getNamaBuku());
+    
+        Denda denda1 = new Denda(peminjaman1, 5000);
+        System.out.println("Jumlah Denda: " + denda1.getJumlahDenda());
+    
+        // Menambahkan tarif denda 10.000
+        denda1.setJumlahDenda(10000);
+        System.out.println("Jumlah Denda (Setelah Diperbarui): " + denda1.getJumlahDenda());
+    } catch (Exception e) {
+        System.out.println("Terjadi Kesalahan: " + e.getMessage());
+    } finally {
+        System.out.println("Program Selesai");
+    }
     }
 }
 
